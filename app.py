@@ -27,5 +27,4 @@ def chat():
         return jsonify({'message': response.choices[0].text.strip()})
 
 if __name__ == '__main__':
-    app.run()
-
+    app.run
