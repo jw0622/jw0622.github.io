@@ -13,7 +13,7 @@ def index():
 @app.route('/chat', methods=['POST'])
 def chat():
     if request.method == 'POST':
-        message = request.form['message']
+        message = request.json['message']
 
         response = openai.Completion.create(
             engine='davinci',
