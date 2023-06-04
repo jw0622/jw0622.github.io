@@ -8,7 +8,7 @@
             var message = $('#message-input').val();
             if (message.trim() === '') return;
             
-            var data = { 'message': message };
+            var data = JSON.stringify({ 'message': message });
 
             $.ajax({
                 url: '/chat',
