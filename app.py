@@ -1,9 +1,10 @@
 import requests
 from flask import Flask, render_template, request, jsonify
 
-app = Flask(__name__, static_url_path='/static')
+app = Flask(__name__)
 
 GPT_API_URL = 'https://api.openai.com/v1/engines/davinci-codex/completions'
+GPT_API_KEY = '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'  # Replace with your actual GPT API key
 
 @app.route('/')
 def home():
@@ -16,7 +17,7 @@ def ask():
     # Make API request to GPT API
     headers = {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer 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'
+        'Authorization': f'Bearer {GPT_API_KEY}'
     }
     data = {
         'prompt': question,
