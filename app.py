@@ -1,9 +1,7 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
+import requests
 
 app = Flask(__name__)
-
-# Define routes and views
-import requests
 
 @app.route('/')
 def home():
@@ -29,4 +27,7 @@ def ask():
     # Extract the answer from the GPT API response
     answer = response.json()['choices'][0]['text'].strip()
 
-    return {'answer': answer}
+    return jsonify({'answer': answer})
+
+if __name__ == '__main__':
+    app.run()
