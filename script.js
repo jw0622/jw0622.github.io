@@ -1,4 +1,4 @@
-document.getElementById('submit-btn').addEventListener('click', function(event) {
+document.getElementById('question-form').addEventListener('submit', function(event) {
     event.preventDefault();
     submitQuestion();
 });
@@ -33,5 +33,6 @@ function submitQuestion() {
         chatContainer.appendChild(chatbotResponse);
     });
 }
+
 
 
