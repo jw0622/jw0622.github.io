@@ -1,40 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Chat GPT API</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-        function sendMessage() {
-            var message = $('#message-input').val();
-            if (message.trim() === '') return;
-            
-            var data = JSON.stringify({ 'message': message });
-
-            $.ajax({
-                url: '/chat',
-                type: 'POST',
-                dataType: 'json',
-                contentType: 'application/json',
-                data: JSON.stringify(data),
-                success: function(response) {
-                    var reply = response.message;
-                    $('#chat-log').append('<div class="message"><span class="user-message">' + message + '</span><span class="bot-message">' + reply + '</span></div>');
-                    $('#message-input').val('');
-                },
-                error: function(error) {
-                    console.log('Error:', error);
-                }
-            });
-        }
-    </script>
+    <title>Chatbot</title>
 </head>
 <body>
-    <div id="chat-container">
-        <div id="chat-log"></div>
-        <div id="input-container">
-            <input type="text" id="message-input" placeholder="Type your message..." />
-            <button onclick="sendMessage()">Send</button>
-        </div>
-    </div>
+    <h1>Chatbot</h1>
+    <div id="chat-container"></div>
+    <input id="user-input" type="text" placeholder="Ask a question">
+    <button id="submit-btn" onclick="submitQuestion()">Submit</button>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
+
