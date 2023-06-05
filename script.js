@@ -1,4 +1,7 @@
-document.getElementById('submit-btn').addEventListener('click', submitQuestion);
+document.getElementById('submit-btn').addEventListener('click', function(event) {
+    event.preventDefault();
+    submitQuestion();
+});
 
 function submitQuestion() {
     const userInput = document.getElementById('user-input').value;
