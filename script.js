@@ -12,7 +12,7 @@ function submitQuestion() {
     userQuestion.innerHTML = `<strong>You:</strong> ${userInput}`;
     chatContainer.appendChild(userQuestion);
 
-    // Make API request to local Flask endpoint
+    // Make API request to GPT API
     fetch('/api/ask', {
         method: 'POST',
         headers: {
@@ -24,9 +24,10 @@ function submitQuestion() {
     })
     .then(response => response.json())
     .then(data => {
-        // Display response from Flask API
+        // Display response from GPT API
         const chatbotResponse = document.createElement('p');
         chatbotResponse.innerHTML = `<strong>Chatbot:</strong> ${data.answer}`;
         chatContainer.appendChild(chatbotResponse);
     });
 }
+
