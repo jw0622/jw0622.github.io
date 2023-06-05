@@ -1,3 +1,5 @@
+document.getElementById('submit-btn').addEventListener('click', submitQuestion);
+
 function submitQuestion() {
     const userInput = document.getElementById('user-input').value;
     const chatContainer = document.getElementById('chat-container');
